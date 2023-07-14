@@ -1,11 +1,6 @@
 trigger:
 - '*'
 
-pool:
-  name: Default
-  demands:
-  - npm
-
 variables:
   buildConfiguration: 'Release'
   releaseBranchName: 'release'
@@ -16,6 +11,10 @@ stages:
   jobs: 
   - job: 'Build'
     displayName: 'Build job'
+    pool:
+      vmImage: 'ubuntu-20.04'
+      demands:
+      - npm
 
     variables:
       wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
